@@ -17,8 +17,8 @@ $> __curl http://npmjs.org/install.sh | sh__
 ###Install grunt CLI###
 $> __npm install -g grunt-cli__
 
-###Once the proper dependencies are installed:###
-----
+Once the proper dependencies are installed:
+---
 cd into the project directory and run the following command:
 
 $> __npm install__
