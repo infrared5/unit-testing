@@ -17,14 +17,15 @@ $> __curl http://npmjs.org/install.sh | sh__
 ###Install grunt CLI###
 $> __npm install -g grunt-cli__
 
-###Once the proper dependencies are installed:###
+##Once the proper dependencies are installed:##
 Point your command terminal to the /javascript project directory and run the following command:
 
 $> __npm install__
 
 The previous command will read the _package.json_ file and install needed node module dependencies for the project.
 
-###Per project###
+Per-Project Requirements
+---
 Similar to the install of node modules for the overall /javascript repository, some examples may use [bower](https://github.com/twitter/bower) as a client-side library manager. __Bower__ needs to be installed through __npm__ globally. 
 After installing node and npm, to install __bower__ run the following command:
 
