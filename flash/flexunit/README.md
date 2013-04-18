@@ -29,17 +29,23 @@ User Story: Access
 * Can access all user accounts
 * Can access properties of each user account
 
-###Feature Specifications
-
-####Feature: Access User Accounts
-
-_Scenario_: Access user accounts.
+###Feature: User accounts are accessible to Admin
 
 **Given** I am an administrator
 
 **When** I request all user accounts
 
 **Then** The Session model is updated with receieved User models
+
+###Feature: User account is accessible to Admin
+
+**Given** I am an administrator
+
+**And** User accounts are available on the Session model
+
+**When** I access a User from the list
+
+**Then** I can view that User's account details
 
 ---
 
@@ -54,32 +60,30 @@ User story: Add User
 
 ###Criteria
 
-* Can add a new user account
+* Can add a new user account if id is unique
+* Cannot add a new user if id is already in system
 
 
-####Feature: Add User Account
-
-_Scenario 1_: Add a non-existing account.
+###Feature: User account with unique id added
 
 **Given** I am an administrator
 
 **When** I request to add a user
 
-**And** The user is not available in the system
+**And** The user id is not available in the system
 
 **Then** The Session model is updated with the User account added
 
-_Scenario 2_: Add an existing account.
+###Feature: User with non-unique id not added
 
 **Given** I am an administrator
 
 **When** I request to add a user
 
-**And** The user is already available in the system determined by id property value
+**And** The user id is already existant in the system
 
 **Then** The Session model is unaffected
 
-**Feature**: Remove User Account
 
 Todo
 ===
