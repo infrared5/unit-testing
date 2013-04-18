@@ -17,12 +17,11 @@ Criteria
 
 User Story: Access
 ---
-
-**As an** administrator
-
-**I want to** access all user accounts
-
-**So that I** view each user information
+<pre>
+<b>As an</b> administrator
+<b>I want to</b> access all user accounts
+<b>So that I</b> view each user information
+</pre>
 
 ###Criteria
 
