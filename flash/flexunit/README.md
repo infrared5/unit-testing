@@ -17,33 +17,33 @@ Criteria
 
 User Story
 ---
-*As an* administrator
-*I want to* manage user accounts
-*So that I* can add and remove users from the system directly
+	**As an** administrator
+	**I want to** manage user accounts
+	**So that I** can add and remove users from the system directly
 
 Criteria
 ---
-Can access all user accounts
-Can add new user
-Can remove existing user
+* Can access all user accounts
+* Can add new user
+* Can remove existing user
 
 Feature Specifications
 ---
 
 **Feature**: Access User Accounts
 
-_Scenario_: Access user accounts.
-*Given* I am an administrator
-*When* I request all user accounts
-*Then* The Session model is updated with receieved User models
+	_Scenario_: Access user accounts.
+	**Given** I am an administrator
+	**When** I request all user accounts
+	**Then** The Session model is updated with receieved User models
 
 **Feature**: Add User Account
 
-_Scenario_: Add a non-existing account.
-*Given* I am an administrator
-*When* I request to add a user
-*And* The user is not available in the system
-*Then* The Session model is updated with the User account added
+	_Scenario_: Add a non-existing account.
+	*Given* I am an administrator
+	*When* I request to add a user
+	*And* The user is not available in the system
+	*Then* The Session model is updated with the User account added
 
 _Scenario_: Add an existing account.
 *Given* I am an administrator
