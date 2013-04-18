@@ -27,12 +27,5 @@ package com.infrared5.application.service
 			request.data = JSON.stringify(value);
 			return new URLLoader(request);
 		}
-		
-		public function removeUser(value:User):IEventDispatcher {
-			var request:URLRequest = new URLRequest(_endpoint + '\users\\' + value.id);
-			request.method = URLRequestMethod.POST;
-			request.data = JSON.stringify({action:'delete'});
-			return new URLLoader(request);
-		}
 	}
 }

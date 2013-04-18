@@ -14,22 +14,14 @@ package com.infrared5.application.model
 			_users = Vector.<User>([]);
 		}
 		
-		public function getIndexOfUserById(value:String):int {
+		public function findUserById(value:String):User {
 			var i:int = _users.length;
 			var user:User;
 			while(--i > -1) {
 				user = _users[i];
 				if(user.id == value) {
-					return i;
+					return user;
 				}
-			}
-			return -1;
-		}
-		
-		public function findUserById(value:String):User {
-			var index:int = getIndexOfUserById(value);
-			if(index > -1) {
-				return _users[index];
 			}
 			return null;
 		}
@@ -38,14 +30,6 @@ package com.infrared5.application.model
 			if(findUserById(value.id) == null ) {
 				_users[_users.length] = value;
 				dispatchEvent(new UserListChangeEvent(UserListChangeEvent.USER_ADD, value, this));
-			}
-			return value;
-		}
-		
-		public function removeUser(value:User):User {
-			var index:int = getIndexOfUserById(value.id);
-			if(index > -1) {
-				_users.splice(index, 1);
 			}
 			return value;
 		}

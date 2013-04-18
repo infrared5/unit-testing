@@ -15,35 +15,45 @@ Included in the example directories are Eclipse project files to easily get setu
 Criteria
 ===
 
-User Story
----
+###User Story: Access
+
 **As an** administrator
 
-**I want to** manage user accounts
+**I want to** access all user accounts
 
-**So that I** can add and remove users from the system directly
+**So that I** view each user information
 
-Criteria
----
+###Criteria
+
 * Can access all user accounts
-* Can add new user
-* Can remove existing user
+* Can access properties of each user account
 
-Feature Specifications
----
+###Feature Specifications
 
-###Feature: Access User Accounts
+####Feature: Access User Accounts
 
 _Scenario_: Access user accounts.
 
 **Given** I am an administrator
 
 **When** I request all user accounts
-	**Then** The Session model is updated with receieved User models
 
-###Feature: Add User Account
+**Then** The Session model is updated with receieved User models
 
-_Scenario_: Add a non-existing account.
+---
+
+###User story: Add User
+
+**As an** administrator
+
+**I want to** add a new user
+
+**So that I** can manage the addition of accounts
+
+
+####Feature: Add User Account
+
+_Scenario 1_: Add a non-existing account.
 
 **Given** I am an administrator
 
@@ -53,7 +63,7 @@ _Scenario_: Add a non-existing account.
 
 **Then** The Session model is updated with the User account added
 
-_Scenario_: Add an existing account.
+_Scenario 2_: Add an existing account.
 
 **Given** I am an administrator
 
@@ -64,28 +74,6 @@ _Scenario_: Add an existing account.
 **Then** The Session model is unaffected
 
 **Feature**: Remove User Account
-
-###Feature: Remove User Account
-
-_Scenario_: Remove an existing account.
-
-**Given** I am an administrator
-
-**When** I request to delete a user
-
-**And** The user is existing in the system
-
-**Then** The Session model is updated with the User account removed
-
-_Scenario_: Remove a non-existing account.
-
-**Given** I am an administrator
-
-**When** I Request to delete a user
-
-**And** The user is not existing in the system
-
-**Then** The Session model is unaffected
 
 Todo
 ===

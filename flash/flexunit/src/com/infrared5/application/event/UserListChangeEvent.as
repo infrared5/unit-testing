@@ -10,7 +10,6 @@ package com.infrared5.application.event
 		public var user:User;
 		public var session:Session;
 		public static const USER_ADD:String = "userAdd";
-		public static const USER_REMOVE:String = "userRemove";
 		
 		public function UserListChangeEvent(type:String, user:User, session:Session) {
 			super(type);

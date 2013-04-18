@@ -20,13 +20,5 @@ package com.infrared5.application.service
 		public function addUser(value:User):ICommand {
 			return addUserCommand.setUser(value);
 		}
-		
-		public function removeUser(value:User):ICommand {
-			return removeUserCommand.setUser(value).execute();
-		}
-		
-		public function updateUser(value:User):ICommand {
-			return updateUserCommand.setUser(value).execute();
-		}
 	}
 }
