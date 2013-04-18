@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ir5-unit-testing jasmine-require</title>
+    <link rel="stylesheet" type="text/css" href="components/jasmine/lib/jasmine-core/jasmine.css">
+    <script src="components/requirejs/requirejs.js"></script>
+    <script src="components/jasmine/lib/jasmine-core/jasmine.js"></script>
+    <script src="components/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+    <script>
+      (function(window, require) {
+
+        require.config({
+          baseUrl: '.',
+          paths: {
+            'spec': './spec',
+            'script': '../common/script/amd'
+          }
+        });
+
+        require(['spec/jasmine-example.spec.js'], function() {
+          var jasmineEnv = jasmine.getEnv(),
+              htmlReporter = new jasmine.HtmlReporter();
+
+          jasmineEnv.updateInterval = 1000;
+          jasmineEnv.addReporter(htmlReporter);
+          jasmineEnv.execute();
+        });
+
+      });
+    </script>
+  </head>
+  <body></body>
+</html>
