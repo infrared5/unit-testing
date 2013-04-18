@@ -17,9 +17,11 @@ Criteria
 
 User Story
 ---
-	**As an** administrator
-	**I want to** manage user accounts
-	**So that I** can add and remove users from the system directly
+**As an** administrator
+
+**I want to** manage user accounts
+
+**So that I** can add and remove users from the system directly
 
 Criteria
 ---
@@ -30,40 +32,60 @@ Criteria
 Feature Specifications
 ---
 
-**Feature**: Access User Accounts
+###Feature: Access User Accounts
 
-	_Scenario_: Access user accounts.
-	**Given** I am an administrator
-	**When** I request all user accounts
+_Scenario_: Access user accounts.
+
+**Given** I am an administrator
+
+**When** I request all user accounts
 	**Then** The Session model is updated with receieved User models
 
-**Feature**: Add User Account
+###Feature: Add User Account
 
-	_Scenario_: Add a non-existing account.
-	*Given* I am an administrator
-	*When* I request to add a user
-	*And* The user is not available in the system
-	*Then* The Session model is updated with the User account added
+_Scenario_: Add a non-existing account.
+
+**Given** I am an administrator
+
+**When** I request to add a user
+
+**And** The user is not available in the system
+
+**Then** The Session model is updated with the User account added
 
 _Scenario_: Add an existing account.
-*Given* I am an administrator
-*When* I request to add a user
-*And* The user is already available in the system determined by id property value
-*Then* The Session model is unaffected
+
+**Given** I am an administrator
+
+**When** I request to add a user
+
+**And** The user is already available in the system determined by id property value
+
+**Then** The Session model is unaffected
 
 **Feature**: Remove User Account
 
+###Feature: Remove User Account
+
 _Scenario_: Remove an existing account.
-*Given* I am an administrator
-*When* I request to delete a user
-*And* The user is existing in the system
-*Then* The Session model is updated with the User account removed
+
+**Given** I am an administrator
+
+**When** I request to delete a user
+
+**And** The user is existing in the system
+
+**Then** The Session model is updated with the User account removed
 
 _Scenario_: Remove a non-existing account.
-*Given* I am an administrator
-*When* I Request to delete a user
-*And* The user is not existing in the system
-*Then* The Session model is unaffected
+
+**Given** I am an administrator
+
+**When** I Request to delete a user
+
+**And** The user is not existing in the system
+
+**Then** The Session model is unaffected
 
 Todo
 ===
