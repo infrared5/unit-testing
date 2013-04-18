@@ -3,9 +3,11 @@
   <head>
     <title>ir5-unit-testing jasmine-require</title>
     <link rel="stylesheet" type="text/css" href="components/jasmine/lib/jasmine-core/jasmine.css">
-    <script src="components/requirejs/requirejs.js"></script>
+    <script src="components/jquery/jquery.js"></script>
+    <script src="components/requirejs/require.js"></script>
     <script src="components/jasmine/lib/jasmine-core/jasmine.js"></script>
     <script src="components/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+    <script src="vendor/lib/jasmine.async.js"></script>
     <script>
       (function(window, require) {
 
@@ -14,10 +16,15 @@
           paths: {
             'spec': './spec',
             'script': '../common/script/amd'
+          },
+          config: {
+            'script/user-service': {
+              endpoint: 'http://localhost:3001'
+            }
           }
         });
 
-        require(['spec/jasmine-example.spec.js'], function() {
+        require(['spec/get-user-command.spec'], function() {
           var jasmineEnv = jasmine.getEnv(),
               htmlReporter = new jasmine.HtmlReporter();
 
@@ -26,7 +33,7 @@
           jasmineEnv.execute();
         });
 
-      });
+      }(this, requirejs));
     </script>
   </head>
   <body></body>
