@@ -29,33 +29,27 @@ User Story: Access
 * Can access properties of each user account
 
 ###Feature: User accounts are accessible to Admin
-
-**Given** I am an administrator
-
-**When** I request all user accounts
-
-**Then** The Session model is updated with receieved User models
+<pre>
+<b>Given</b> I am an administrator
+<b>When</b> I request all user accounts
+<b>Then</b> The Session model is updated with receieved User models
+</pre>
 
 ###Feature: User account is accessible to Admin
-
-**Given** I am an administrator
-
-**And** User accounts are available on the Session model
-
-**When** I access a User from the list
-
-**Then** I can view that User's account details
-
----
+<pre>
+<b>Given</b> I am an administrator
+<b>And</b> User accounts are available on the Session model
+<b>When</b> I access a User from the list
+<b>Then</b> I can view that User's account details
+</pre>
 
 User story: Add User
 ---
-
-**As an** administrator
-
-**I want to** add a new user
-
-**So that I** can manage the addition of accounts
+<pre>
+<b>As an</b> administrator
+<b>I want to</b> add a new user
+<b>So that I</b> can manage the addition of accounts
+</pre>
 
 ###Criteria
 
@@ -64,25 +58,20 @@ User story: Add User
 
 
 ###Feature: User account with unique id added
-
-**Given** I am an administrator
-
-**When** I request to add a user
-
-**And** The user id is not available in the system
-
-**Then** The Session model is updated with the User account added
+<pre>
+<b>Given</b> I am an administrator
+<b>When</b> I request to add a user
+<b>And</b> The user id is not available in the system
+<b>Then</b> The Session model is updated with the User account added
+</pre>
 
 ###Feature: User with non-unique id not added
-
-**Given** I am an administrator
-
-**When** I request to add a user
-
-**And** The user id is already existant in the system
-
-**Then** The Session model is unaffected
-
+<pre>
+<b>Given</b> I am an administrator
+<b>When</b> I request to add a user
+<b>And</b> The user id is already existant in the system
+<b>Then</b> The Session model is unaffected
+</pre>
 
 Todo
 ===
