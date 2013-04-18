@@ -1,4 +1,4 @@
-define(['src/session', 'src/user-service'], function(session, userService) {
+define(['script/session', 'script/user-service'], function(session, userService) {
   
   return {
     execute: function(success, fault) {

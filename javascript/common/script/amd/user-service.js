@@ -5,13 +5,13 @@ define(['module'], function(module) {
   return {
     getUsers: function() {
       return $.ajax({
-        url: endpoint + '\users',
+        url: endpoint + '/users',
         dataType: 'json'
       });
     },
     addUser: function(value) {
       return $.ajax({
-        url: endpoint + '\users\\' + value.id,
+        url: endpoint + '/users/' + value.id,
         contentType: 'application/json',
         data: JSON.stringify(value),
         dataType: 'json'

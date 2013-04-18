@@ -2,7 +2,7 @@ define(function() {
   
   return {
     create: function(id) {
-      var newUser = Object.create(user);
+      var newUser = Object.create(Object.prototype);
       Object.defineProperties(newUser, {
         "id": {
           value: id,

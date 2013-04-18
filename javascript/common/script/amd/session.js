@@ -4,15 +4,19 @@ define(function() {
 
 	return {
     addUser: function(user) {
-      if(!this.getUserById(user.id)) {
+      if(!this.findUserById(user.id)) {
         _users[_users.length] = user;
       }
       return user;
     },
 		findUserById: function(userId) {
-      var index = this.getUserIndexById(userId);
-      if(index > -1) {
-        return _users[index];
+      var index = _users.length,
+          user;
+      while(--index > -1) {
+        user = _users[index];
+        if(user.id === userId) {
+          return user;
+        }
       }
       return undefined;
     },
