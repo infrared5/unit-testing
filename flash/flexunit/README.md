@@ -15,7 +15,8 @@ Included in the example directories are Eclipse project files to easily get setu
 Criteria
 ===
 
-###User Story: Access
+User Story: Access
+---
 
 **As an** administrator
 
@@ -42,13 +43,18 @@ _Scenario_: Access user accounts.
 
 ---
 
-###User story: Add User
+User story: Add User
+---
 
 **As an** administrator
 
 **I want to** add a new user
 
 **So that I** can manage the addition of accounts
+
+###Criteria
+
+* Can add a new user account
 
 
 ####Feature: Add User Account
