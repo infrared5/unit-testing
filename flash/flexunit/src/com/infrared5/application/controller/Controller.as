@@ -8,8 +8,6 @@ package com.infrared5.application.service
 		
 		public var getUsersCommand:ICommand;
 		public var addUserCommand:IUserCommand;
-		public var removeUserCommand:IUserCommand;
-		public var updateUserCommand:IUserCommand;
 		
 		public function Controller() {}
 		
