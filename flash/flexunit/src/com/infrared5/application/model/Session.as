@@ -43,7 +43,7 @@ package com.infrared5.application.model
 		}
 		
 		public function removeUser(value:User):User {
-			var index:int = getIndexOfUserById(value);
+			var index:int = getIndexOfUserById(value.id);
 			if(index > -1) {
 				_users.splice(index, 1);
 			}
