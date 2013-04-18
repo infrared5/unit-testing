@@ -1,3 +1,4 @@
+/*global $:false*/
 define(['module'], function(module) {
 
   var endpoint = module.config().endpoint;

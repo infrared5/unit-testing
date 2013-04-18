@@ -1,3 +1,4 @@
+/*global $:false*/
 define(['script/session', 'script/get-users-command', 'script/user-factory'], 
         function(session, getUsersCommand, userFactory) {
   

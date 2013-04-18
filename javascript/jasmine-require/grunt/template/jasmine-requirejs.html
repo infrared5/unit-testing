@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Jasmine Spec Runner</title>
+
+  <% with (scripts) { %>
+  <% [].concat(jasmine, vendor).forEach(function(script){ %>
+  <script src="<%= script %>"></script>
+  <% }) %>
+  <% }; %>
+
+  <script src="<%= temp %>/require.js"></script>
+  <script src="jasmine-require/components/jquery/jquery.js"></script>
+  <script src="jasmine-require/vendor/lib/jasmine.async.js"></script>
+  <script>
+    <% if (options.requireConfig) { %>
+      require.config(<%= JSON.stringify(options.requireConfig) %>);
+    <% } %>
+  </script>
+  <% css.forEach(function(style){ %>
+  <link rel="stylesheet" type="text/css" href="<%= style %>">
+  <% }) %>
+  <script>
+    require(['<%= scripts.helpers %>'], function() {
+      require(['<%= [].concat(scripts.specs,scripts.reporters).join("','") %>'], function(){
+        require(['<%= scripts.start.join("','") %>'], function(){
+          // good to go! Our tests should already be running.
+        })
+      })
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>
