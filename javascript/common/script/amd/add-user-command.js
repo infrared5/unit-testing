@@ -5,6 +5,7 @@ define(['script/session', 'script/user-service'], function(session, userService)
   return {
     setUser: function(value) {
       _user = value;
+      return this;
     },
     execute: function(success, fault) {
       userService

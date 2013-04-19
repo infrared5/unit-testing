@@ -45,9 +45,12 @@ define(['script/session', 'script/get-users-command', 'script/user-factory'],
     describe('user access on session', function() {
 
       var uid = '01234',
-          user = userFactory.create(uid);
+          name = 'ted henderson',
+          user;
 
       beforeEach(function() {
+        user = userFactory.create(uid);
+        user.name = name;
         session.addUser(user);
       });
 
@@ -59,10 +62,10 @@ define(['script/session', 'script/get-users-command', 'script/user-factory'],
         expect(session.findUserById(uid)).toBe(user);
       });
 
-      it('should not addUser() if exists', function() {
-        var userLength = session.getUsers().length;
-        session.addUser(user);
-        expect(session.getUsers().length).toEqual(userLength);
+      it('should have properties accessible', function() {
+        var userOnSession = session.findUserById(uid);
+        expect(userOnSession.id).toEqual(uid);
+        expect(userOnSession.name).toEqual(name);
       });
 
     });

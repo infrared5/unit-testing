@@ -81,7 +81,7 @@ The _jasmine_ directive defines the use of the __grunt-contrib-jasmine__ task. C
 
 The __jasmine-require__ task is then accessed using the following notation:
 
-<grunt_task_name>:<target_name>
+&lt;grunt_task_name&gt;:&lt;target_name&gt;
 
 Using this notation, you would run the __jasmine-require__ tests under __grunt-contrib-jasmine__ by using the following command:
 
