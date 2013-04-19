@@ -1,11 +1,13 @@
 package com.infrared5.application.command
 {
 	import com.infrared5.application.model.Session;
+	import com.infrared5.application.model.User;
 	import com.infrared5.application.service.UserService;
 	
 	import flash.events.Event;
 	import flash.events.IEventDispatcher;
 	import flash.events.IOErrorEvent;
+	import flash.net.URLLoader;
 
 	public class GetUsersCommand implements ICommand {
 		
@@ -14,7 +16,7 @@ package com.infrared5.application.command
 		
 		private var successHandler:Function;
 		private var faultHandler:Function;
-		private var operation:IEventDispatcher;
+		private var operation:URLLoader;
 		
 		public function GetUsersCommand() {}
 		
@@ -31,11 +33,19 @@ package com.infrared5.application.command
 		
 		private function removeOperationHandlers(operation:IEventDispatcher):void {
 			operation.removeEventListener(Event.COMPLETE, handleSuccess, false);
-			operation.removeEventListener(IOErrorEvent, handleFault, false);
+			operation.removeEventListener(IOErrorEvent.IO_ERROR, handleFault, false);
 		}
 		
 		protected function handleSuccess(evt:Event):void {
-			successHandler.call(null, true);
+			var users:Array = JSON.parse(operation.data) as Array;
+			var i:int = 0;
+			var length:int = users.length;
+			var user:User;
+			for(i; i < length; i++) {
+				user = User.inflate(users[i]);
+				session.addUser(user);	
+			}	 
+			successHandler.call(null, users);
 			clear();
 		}
 		

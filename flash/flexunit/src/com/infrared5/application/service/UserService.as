@@ -2,7 +2,6 @@ package com.infrared5.application.service
 {
 	import com.infrared5.application.model.User;
 	
-	import flash.events.IEventDispatcher;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.net.URLRequestMethod;
@@ -15,13 +14,13 @@ package com.infrared5.application.service
 			_endpoint = endpoint;
 		}
 		
-		public function getUsers():IEventDispatcher {
+		public function getUsers():URLLoader {
 			var request:URLRequest = new URLRequest(_endpoint + '\users');
 			request.method = URLRequestMethod.GET;
 			return new URLLoader(request);
 		}
 		
-		public function addUser(value:User):IEventDispatcher {
+		public function addUser(value:User):URLLoader {
 			var request:URLRequest = new URLRequest(_endpoint + '\users\\' + value.id);
 			request.method = URLRequestMethod.POST;
 			request.data = JSON.stringify(value);

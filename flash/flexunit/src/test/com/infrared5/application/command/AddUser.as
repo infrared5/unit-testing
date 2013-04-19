@@ -9,6 +9,7 @@ package test.com.infrared5.application.command
 	import flash.events.EventDispatcher;
 	import flash.events.IEventDispatcher;
 	import flash.events.IOErrorEvent;
+	import flash.net.URLLoader;
 	
 	import flexunit.framework.Assert;
 	
@@ -28,7 +29,7 @@ package test.com.infrared5.application.command
 		public var command:AddUserCommand;
 		[Mock(inject="false")]
 		public var userService:UserService;
-		public var dispatcher:IEventDispatcher = new EventDispatcher();
+		public var dispatcher:URLLoader = new URLLoader();
 		public static const USER_ID:String = new Date().time.toString();
 		
 		[Before]
@@ -50,6 +51,7 @@ package test.com.infrared5.application.command
 			user = null;
 			session = null;
 			command = null;
+			userService = null;
 		}
 		
 		private function handleAsyncTestTimeout(info:Object = null):void {
@@ -97,7 +99,7 @@ package test.com.infrared5.application.command
 		[Test(async, description="should respond on fault delegate if user not added.")]
 		public function test_fault_response_on_no_add():void {
 			var handler:Function = Async.asyncHandler(this, function(evt:Event, passthrough:Object = null):void {
-				Assert.assertTrue("should have gotten here if working as expected.");
+				Assert.assertTrue("should have gotten here if working as expected.", true);
 			}, 2000, null, handleAsyncTestTimeout);
 			// execution and success responder.
 			command.execute(null, function():void {
@@ -111,7 +113,7 @@ package test.com.infrared5.application.command
 		public function test_session_user_list_unaffect_on_fault():void {
 			var previousUserLength:int = session.users.length;
 			var handler:Function = Async.asyncHandler(this, function(evt:Event, passthrough:Object = null):void {
-				Assert.assertTrue("should not affect session list.", previousUserLength, session.users.length); 
+				Assert.assertEquals("should not affect session list.", previousUserLength, session.users.length); 
 			}, 2000, null, handleAsyncTestTimeout);
 			// execution and success responder.
 			command.execute(null, function():void {
