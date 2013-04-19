@@ -37,6 +37,7 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
+    <application path="FlexUnitApplication.as"/>
     <application path="FlexUnitCompilerApplication.as"/>
     <application path="flexunit.as"/>
   </applications>

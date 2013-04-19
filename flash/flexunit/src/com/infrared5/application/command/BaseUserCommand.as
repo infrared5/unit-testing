@@ -37,7 +37,7 @@ package com.infrared5.application.command
 		
 		protected function removeOperationHandlers(operation:IEventDispatcher):void {
 			operation.removeEventListener(Event.COMPLETE, handleSuccess, false);
-			operation.removeEventListener(IOErrorEvent, handleFault, false);
+			operation.removeEventListener(IOErrorEvent.IO_ERROR, handleFault, false);
 		}
 		
 		protected function handleSuccess(evt:Event):void {

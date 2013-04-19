@@ -1,5 +1,6 @@
 package com.infrared5.application.command
 {
+	import flash.events.Event;
 	import flash.events.IEventDispatcher;
 
 	public class AddUserCommand extends BaseUserCommand {
@@ -19,6 +20,11 @@ package com.infrared5.application.command
 		override protected function internalExecute():void {
 			operation = this.userService.addUser(_user);
 			addOperationHandlers(operation);
+		}
+		
+		override protected function handleSuccess(evt:Event):void {
+			this.session.addUser(_user);
+			super.handleSuccess(evt);
 		}
 	}
 }
