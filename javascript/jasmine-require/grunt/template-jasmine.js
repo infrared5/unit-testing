@@ -1,6 +1,6 @@
 var template = __dirname + '/template/jasmine-requirejs.html',
     requirejs  = {
-      '2.1.4' : process.cwd() + '/jasmine-require/components/requirejs/require.js'
+      '2.1.4' : process.cwd() + '/components/requirejs/require.js'
     };
 
 exports.process = function(grunt, task, context) {

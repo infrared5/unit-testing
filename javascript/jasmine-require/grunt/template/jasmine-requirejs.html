@@ -11,8 +11,8 @@
   <% }; %>
 
   <script src="<%= temp %>/require.js"></script>
-  <script src="jasmine-require/components/jquery/jquery.js"></script>
-  <script src="jasmine-require/vendor/lib/jasmine.async.js"></script>
+  <script src="components/jquery/jquery.js"></script>
+  <script src="vendor/lib/jasmine.async.js"></script>
   <script>
     <% if (options.requireConfig) { %>
       require.config(<%= JSON.stringify(options.requireConfig) %>);
