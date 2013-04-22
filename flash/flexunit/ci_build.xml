@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="FlexUnit CI Build example" basedir="." default="compile">
+	
+	<!-- environmental properties define in CI client (ie, Jenkins) -->
+	<property environment="env"/>
+	
+	<!--
+		Folder locations
+	-->
+	
+	<property name="libs" location="libs"/>
+	<property name="src" location="src"/>
+	<property name="flexunit.libs" location="flexunit-libs"/>
+	
+	<!--
+		SDKs
+	-->
+
+	<property name="Flex4.6" location="${env.FLEX_HOME}" />
+	<property name="FLEX_HOME" location="${env.FLEX_HOME}"/>
+	
+	<!--
+		Output
+	-->
+	
+	<property name="output" location="${basedir}/target" />
+	<property name="output.tests" location="${output}/tests"/>
+	<property name="output.bin" location="${output}/bin" />
+	<property name="output.report" location="${output}/report" />
+	<property name="output.dist" location="${output}/dist" />
+	<property name="output.docs" location="${output}/docs" />
+	
+	<!--
+		Task Definitions
+	-->
+	
+	<taskdef resource="flexTasks.tasks" classpath="${Flex4.6}/ant/lib/flexTasks.jar"/>
+	
+	<taskdef resource="flexUnitTasks.tasks">
+		<classpath>
+			<fileset dir="${basedir}/flexunit-libs">
+				<include name="flexUnitTasks*.jar"/>
+			</fileset>
+		</classpath>
+	</taskdef>
+	
+	<!--
+		Targets
+	-->
+	
+	<target name="clean">
+		<delete dir="${output}"></delete>
+	</target>
+	
+	<target name="init" depends="clean">
+		<mkdir dir="${output}"/>
+		<mkdir dir="${output.tests}"/>
+		<mkdir dir="${output.bin}"/>
+		<mkdir dir="${output.report}"/>
+		<mkdir dir="${output.dist}"/>
+		<mkdir dir="${output.docs}"/>
+	</target>
+	
+	<target name="compile" depends="init">
+		<antcall target="compileTestRunner"/>
+		<antcall target="executeTestRunner"/>
+	</target>
+	
+	<!--
+		FlexUnit targets
+	-->
+	
+	<target name="compileTestRunner">
+		<mxmlc file="${src}/FlexUnitApplicationJenkins.as" output="${output.tests}/FlexUnitApplication.swf" static-link-runtime-shared-libraries="true">
+			<load-config filename="${Flex4.6}/frameworks/flex-config.xml"/>
+			<compiler.source-path path-element="${src}" />
+			<compiler.library-path dir="${flexunit.libs}" append="true">
+				<include name="*.swc"/>
+			</compiler.library-path>
+			<compiler.library-path dir="${libs}" append="true">
+				<include name="*.swc"/>
+			</compiler.library-path>
+			<compiler.verbose-stacktraces>true</compiler.verbose-stacktraces>
+			<compiler.headless-server>true</compiler.headless-server>
+		</mxmlc>
+	</target>
+	
+	<target name="executeTestRunner" description="executes the test runner app">
+		<flexunit swf="${output.tests}/FlexUnitApplication.swf" toDir="${output.report}" display="99" headless="true" haltonfailure="false" verbose="true" localTrusted="true"/>
+		<junitreport todir="${output.report}">
+			<fileset dir="${output.report}">
+				<include name="TEST-*.xml"/>
+			</fileset>
+			<report format="frames" todir="${output.report}/html"/>
+		</junitreport>
+	</target>
+	
+</project>

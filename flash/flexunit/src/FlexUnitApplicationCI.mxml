@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" 
+			   minWidth="955" minHeight="600" creationComplete="onCreationComplete()">
+	
+	<fx:Script>
+		<![CDATA[
+			import org.flexunit.listeners.CIListener;
+			import org.flexunit.runner.FlexUnitCore;
+			
+			public var core:FlexUnitCore;
+			
+			import test.com.infrared5.application.command.CommandSuite;
+			
+			private function onCreationComplete():void
+			{
+				core = new FlexUnitCore();
+				core.addListener( new CIListener() );
+				core.run( currentRunTestSuite() );
+			}
+			
+			public function currentRunTestSuite():Array
+			{
+				var testsToRun:Array = new Array();
+				testsToRun.push(test.com.infrared5.application.command.CommandSuite);
+				return testsToRun;
+			}
+		]]>
+	</fx:Script>
+	
+</s:Application>
