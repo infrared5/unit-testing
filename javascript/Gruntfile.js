@@ -66,18 +66,33 @@ module.exports = function(grunt) {
       require: {
         src: 'common/**/*.js',
         options: {
-          specs: 'jasmine-require/spec/**/*.spec.js',
-          template: require('./jasmine-require/grunt/template-jasmine'),
+          junit: {
+            path: './jasmine-require/output/testresults'
+          },
+          specs: './jasmine-require/spec/**/*.spec.js',
+          template: require('grunt-template-jasmine-istanbul'),
           templateOptions: {
-            requireConfig: {
-              baseUrl: '.',
-              paths: {
-                "spec": "./jasmine-require/spec",
-                "script": "./common/script/amd"
-              },
-              config: {
-                'script/user-service': {
-                  endpoint: 'http://localhost:3001'
+            coverage: './jasmine-require/output/coverage/coverage.json',
+            report: [
+                {type: 'html', options: {dir: './jasmine-require/output/coverage'}},
+                {type: 'cobertura', options: {dir: './jasmine-require/output/coverage/cobertura'}},
+                {type: 'text-summary'}
+            ],
+            template: require('./jasmine-require/grunt/template-jasmine'),
+            templateOptions: {
+              requireConfig: {
+                // set base url as .grunt/grunt-contrib-jasmine.
+                baseUrl: '.grunt/grunt-contrib-jasmine',
+                paths: {
+                  // define specs relative to baseUrl.
+                  "spec": "../../jasmine-require/spec",
+                  // define source relative to current working directory.
+                  "script": "./common/script/amd"
+                },
+                config: {
+                  'script/user-service': {
+                    endpoint: 'http://localhost:3001'
+                  }
                 }
               }
             }
