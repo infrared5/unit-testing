@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<actionScriptProperties analytics="false" mainApplicationPath="Main.mxml" projectUUID="58a4dcfe-f3f4-48fa-b108-c83903b5ac3f" version="10">
+<actionScriptProperties analytics="false" mainApplicationPath="SpecRunner.mxml" projectUUID="58a4dcfe-f3f4-48fa-b108-c83903b5ac3f" version="10">
   <compiler additionalCompilerArguments="-locale en_US" autoRSLOrdering="true" copyDependentFiles="true" fteInMXComponents="false" generateAccessible="true" htmlExpressInstall="true" htmlGenerate="true" htmlHistoryManagement="true" htmlPlayerVersionCheck="true" includeNetmonSwc="false" outputFolderPath="bin-debug" removeUnusedRSL="true" sourceFolderPath="src" strict="true" targetPlayerVersion="0.0.0" useApolloConfig="false" useDebugRSLSwfs="true" verifyDigests="true" warn="true">
     <compilerSourcePath/>
     <libraryPath defaultLinkType="0">
@@ -15,7 +15,7 @@
     <sourceAttachmentPath/>
   </compiler>
   <applications>
-    <application path="Main.mxml"/>
+    <application path="SpecRunner.mxml"/>
   </applications>
   <modules/>
   <buildCSSFiles/>
