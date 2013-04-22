@@ -28,6 +28,9 @@ The testrunner should launch in an external browser (the one set as default in F
 ##Continuous Integration (CI) Server
 Included in this project is a _ci_build.xml_ file that can serve as an example of how to setup headless testing using **FlexUnit** on an CI server. It is based off of a project that integrates with **Jenkins** and may need to be modified for other CI servers. If modifications are made, please document and provide a targeting build file.
 
+The testrunner application is a custom MXML file (_/src/FlexUnitApplicationCI.mxml_) that needs to be maintained manually. Typically - as is demonstrated in the application file - this is adding Test Suites to the runner.
+
+[FlexUnit CI documentation](http://docs.flexunit.org/index.php?title=Continuous_Integration_Support)
 
 Todo
 ===
