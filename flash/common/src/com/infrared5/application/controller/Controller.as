@@ -1,4 +1,4 @@
-package com.infrared5.application.service
+package com.infrared5.application.controller
 {
 	import com.infrared5.application.command.ICommand;
 	import com.infrared5.application.command.IUserCommand;
@@ -12,7 +12,7 @@ package com.infrared5.application.service
 		public function Controller() {}
 		
 		public function getUsers():ICommand {
-			return getUsersCommand.execute();
+			return getUsersCommand;
 		}
 		
 		public function addUser(value:User):ICommand {
