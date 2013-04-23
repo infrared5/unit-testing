@@ -38,7 +38,9 @@ describe("Add User", function():void {
 	});
 	afterEach(function():void {
 		user = null;
+		command = null;
 		session = null;
+		userService = null;
 	});
 	
 	describe("add previously non-existant user", function():void {

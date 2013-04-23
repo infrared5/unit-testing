@@ -3,12 +3,9 @@
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
 			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600" 
 			   xmlns:flexreporter="org.jasmineflex.flexreporter.*" xmlns:spec="spec.*">
-	<!--
-	<fx:Metadata>
-		[RunWith("mockolate.runner.MockolateRunner")]
-	</fx:Metadata>
-	-->
+	
 	<fx:Script source="spec/AddUser.as" />
+	<fx:Script source="spec/GetUsers.as" />
 	
 	<flexreporter:TrivialFlexReporterView width="100%" height="100%" autoExecute="true" />
 	
