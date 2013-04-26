@@ -7,7 +7,7 @@ Criteria
 ===
 The examples - across different languages and libraries - will be structured similarly so as to be easily discernable by developer's who may not be familiar but are interested in common practice for testing within a particular programming language.
 
-As such, it is the intent of each example to demonstrate writing unit tests for the following Acceptance Criteria. The following provides User Stories, with defined criteria and features to be addressed in each programming language (+library) example:
+As such, it is the intent of each example to demonstrate writing unit tests for the following Acceptance Criteria. The following provides User Stories, with defined criteria and scenarios to be addressed in each programming language (+library) example:
 
 User Story: Access
 ---
@@ -22,14 +22,14 @@ User Story: Access
 * Can access all user accounts
 * Can access properties of each user account
 
-###Feature: User accounts are accessible to Admin
+###Scenario: User accounts are accessible to Admin
 <pre>
 <b>Given</b> I am an administrator
 <b>When</b> I request all user accounts
 <b>Then</b> The Session model is updated with receieved User models
 </pre>
 
-###Feature: User account is accessible to Admin
+###Scenario: User account is accessible to Admin
 <pre>
 <b>Given</b> I am an administrator
 <b>And</b> User accounts are available on the Session model
@@ -51,7 +51,7 @@ User story: Add User
 * Cannot add a new user if id is already in system
 
 
-###Feature: User account with unique id added
+###Scenario: User account with unique id added
 <pre>
 <b>Given</b> I am an administrator
 <b>When</b> I request to add a user
@@ -59,7 +59,7 @@ User story: Add User
 <b>Then</b> The Session model is updated with the User account added
 </pre>
 
-###Feature: User with non-unique id not added
+###Scenario: User with non-unique id not added
 <pre>
 <b>Given</b> I am an administrator
 <b>When</b> I request to add a user
@@ -69,7 +69,7 @@ User story: Add User
 
 Syntax & Structure
 ===
-It is preferrable to structure tests using a Behaviour-Driven-Development (BDD) methodology - at least syntax-wise. Though unit tests focused on particular output of a single method based on varying input may be required, it is recommend to setup the tests to prove a scenarios of a feature. Typically this means:
+It is preferrable to structure tests using a Behaviour-Driven-Development (BDD) methodology - at least syntax-wise. Though unit tests focused on particular output of a single method based on varying input may be required, it is recommended to setup a test to prove a scenario of a feature. Typically this means:
 
 * <b>Given</b>s are defined at the top of a test case
 * <b>When</b>s are descibed in set-up
