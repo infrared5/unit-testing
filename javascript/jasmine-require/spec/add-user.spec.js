@@ -2,6 +2,8 @@
 define(['script/session', 'script/add-user-command', 'script/user-factory'],
         function(session, addUserCommand, userFactory) {
 
+  'use strict';
+
   describe('add user', function() {
 
     describe('add request of non-existing user', function() {
@@ -13,7 +15,7 @@ define(['script/session', 'script/add-user-command', 'script/user-factory'],
 
       beforeEach(function() {
         deferred = $.Deferred();
-        spyOn($, "ajax").andCallFake(function() {
+        spyOn($, 'ajax').andCallFake(function() {
           return deferred;
         });
       });
@@ -52,7 +54,7 @@ define(['script/session', 'script/add-user-command', 'script/user-factory'],
       beforeEach(function() {
         deferred = $.Deferred();
         session.addUser(user);
-        spyOn($, "ajax").andCallFake(function() {
+        spyOn($, 'ajax').andCallFake(function() {
           return deferred;
         });
       });

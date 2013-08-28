@@ -1,6 +1,8 @@
 /*global $:false*/
-define(['script/session', 'script/get-users-command', 'script/user-factory'], 
+define(['script/session', 'script/get-users-command', 'script/user-factory'],
         function(session, getUsersCommand, userFactory) {
+
+  'use strict';
   
   describe('get-users', function() {
 
@@ -12,7 +14,7 @@ define(['script/session', 'script/get-users-command', 'script/user-factory'],
 
       beforeEach(function() {
         users = [userFactory.create('1234'), userFactory.create('5678')];
-        spyOn($, "ajax").andCallFake(function() {
+        spyOn($, 'ajax').andCallFake(function() {
           deferred = $.Deferred();
           return deferred;
         });

@@ -1,6 +1,8 @@
 /*global $:false*/
 define(['module'], function(module) {
 
+  'use strict';
+
   var endpoint = module.config().endpoint;
 
   return {

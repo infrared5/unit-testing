@@ -1,4 +1,6 @@
 define(['script/session', 'script/user-service'], function(session, userService) {
+
+  'use strict';
   
   return {
     execute: function(success, fault) {

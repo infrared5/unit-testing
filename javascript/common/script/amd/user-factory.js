@@ -1,15 +1,17 @@
 define(function() {
+
+  'use strict';
   
   return {
     create: function(id) {
       var newUser = Object.create(Object.prototype);
       Object.defineProperties(newUser, {
-        "id": {
+        'id': {
           value: id,
           writable: false,
           enumerable: true
         },
-        "name": {
+        'name': {
           value: undefined,
           writable: true,
           enumerable: true

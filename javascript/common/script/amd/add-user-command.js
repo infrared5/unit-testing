@@ -1,6 +1,8 @@
 define(['script/session', 'script/user-service'], function(session, userService) {
 
-  var _user;  
+  'use strict';
+
+  var _user;
 
   return {
     setUser: function(value) {

@@ -1,9 +1,10 @@
-/*global module:false*/
 /**
  * For grunt ~0.4.0 only.
  * https://github.com/gruntjs/grunt/wiki/Upgrading-from-0.3-to-0.4
  */
 module.exports = function(grunt) {
+
+  'use strict';
 
   // Project configuration.
   grunt.initConfig({
@@ -25,41 +26,44 @@ module.exports = function(grunt) {
     jshint: {
       files: ['Gruntfile.js', 'common/**/*.js', 'jasmine-require/spec/**/*.spec.js'],
       options: {
-        strict: false,
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: false,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        boss: true,
-        eqnull: true,
-        es5: true,
-        loopfunc: true,
-        // trailing: true,
-        browser: true,
-        node: false,
-        globals: {
-          console: true,
-          jQuery: true,
-          require: true,
-          requirejs: true,
-          define: true,
-          Handlebars: true,
-          Sammy: true,
-          jasmine: true,
-          describe: true,
-          it: true,
-          beforeEach: true,
-          afterEach: true,
-          expect: true,
-          AsyncSpec: true,
-          spyOn: true,
-          sinon: true
-        }
+          jshintrc: '.jshintrc'
       }
+      // {
+      //   strict: false,
+      //   curly: true,
+      //   eqeqeq: true,
+      //   immed: true,
+      //   latedef: false,
+      //   newcap: true,
+      //   noarg: true,
+      //   sub: true,
+      //   undef: true,
+      //   boss: true,
+      //   eqnull: true,
+      //   es5: true,
+      //   loopfunc: true,
+      //   // trailing: true,
+      //   browser: true,
+      //   node: false,
+      //   globals: {
+      //     console: true,
+      //     jQuery: true,
+      //     require: true,
+      //     requirejs: true,
+      //     define: true,
+      //     Handlebars: true,
+      //     Sammy: true,
+      //     jasmine: true,
+      //     describe: true,
+      //     it: true,
+      //     beforeEach: true,
+      //     afterEach: true,
+      //     expect: true,
+      //     AsyncSpec: true,
+      //     spyOn: true,
+      //     sinon: true
+      //   }
+      // }
     },
     jasmine: {
       // add other repository examples here...
@@ -85,9 +89,9 @@ module.exports = function(grunt) {
                 baseUrl: '.grunt/grunt-contrib-jasmine',
                 paths: {
                   // define specs relative to baseUrl.
-                  "spec": "../../jasmine-require/spec",
+                  'spec': '../../jasmine-require/spec',
                   // define source relative to current working directory.
-                  "script": "./common/script/amd"
+                  'script': './common/script/amd'
                 },
                 config: {
                   'script/user-service': {
