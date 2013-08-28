@@ -28,42 +28,6 @@ module.exports = function(grunt) {
       options: {
           jshintrc: '.jshintrc'
       }
-      // {
-      //   strict: false,
-      //   curly: true,
-      //   eqeqeq: true,
-      //   immed: true,
-      //   latedef: false,
-      //   newcap: true,
-      //   noarg: true,
-      //   sub: true,
-      //   undef: true,
-      //   boss: true,
-      //   eqnull: true,
-      //   es5: true,
-      //   loopfunc: true,
-      //   // trailing: true,
-      //   browser: true,
-      //   node: false,
-      //   globals: {
-      //     console: true,
-      //     jQuery: true,
-      //     require: true,
-      //     requirejs: true,
-      //     define: true,
-      //     Handlebars: true,
-      //     Sammy: true,
-      //     jasmine: true,
-      //     describe: true,
-      //     it: true,
-      //     beforeEach: true,
-      //     afterEach: true,
-      //     expect: true,
-      //     AsyncSpec: true,
-      //     spyOn: true,
-      //     sinon: true
-      //   }
-      // }
     },
     jasmine: {
       // add other repository examples here...
