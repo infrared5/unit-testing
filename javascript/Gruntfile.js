@@ -20,13 +20,27 @@ module.exports = function(grunt) {
       },
       requiretests: {
         files: ['jasmine-require/spec/**/*.spec.js'],
-        tasks: ['jshint', 'jasmine:require']
+        tasks: ['jshint:jasmine', 'jasmine:require']
+      },
+      cucumbertests: {
+        files: ['cucumber/**/*.js'],
+        tasks: ['jshint:cucumber', 'cucumberjs']
       }
     },
     jshint: {
-      files: ['Gruntfile.js', 'common/**/*.js', 'jasmine-require/spec/**/*.spec.js'],
+      files: ['Gruntfile.js', 'common/**/*.js'],
+      jasmine: {
+        files: {
+          src: ['jasmine-require/spec/**/*.spec.js']
+        }
+      },
+      cucumber: {
+        files: {
+          src: ['cucumber/**/*.js']
+        }
+      },
       options: {
-          jshintrc: '.jshintrc'
+        jshintrc: '.jshintrc'
       }
     },
     jasmine: {
@@ -67,14 +81,22 @@ module.exports = function(grunt) {
           }
         }
       }
+    },
+    cucumberjs: {
+      files: 'cucumber/features',
+      options: {
+        steps: 'cucumber/features/step_definitions'
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-cucumber');
 
   // simple lint and test
-  grunt.registerTask('default', ['jshint', 'jasmine:require']);
-  grunt.registerTask('jasmine-require', ['jshint', 'jasmine:require']);
+  grunt.registerTask('jasmine-require', ['jshint:jasmine', 'jasmine:require']);
+  grunt.registerTask('cucumber', ['jshint:cucumber', 'cucumberjs']);
+  grunt.registerTask('default', ['jshint:files', 'jasmine-require', 'cucumber']);
 };

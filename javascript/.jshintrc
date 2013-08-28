@@ -2,10 +2,9 @@
     "predef": [
         "module",
         "require",
-        "requirejs",
+        "define",
         "describe",
         "it",
-        "define",
         "expect",
         "jasmine",
         "Handlebars",

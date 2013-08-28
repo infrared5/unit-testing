@@ -1,5 +1,4 @@
-/*global $:false*/
-define(['module'], function(module) {
+define(['jquery', 'module'], function($, module) {
 
   'use strict';
 

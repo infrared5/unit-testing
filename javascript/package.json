@@ -24,7 +24,12 @@
     "grunt-contrib-jshint": "~0.1.1",
     "grunt-contrib-watch": "~0.2.0",
     "phantomjs": "~1.9.0-1",
-    "grunt-template-jasmine-istanbul": "~0.2.1"
+    "grunt-template-jasmine-istanbul": "~0.2.1",
+    "cucumber": "latest",
+    "zombie": "~2.0.0-alpha21",
+    "grunt-cucumber": "~0.2.1",
+    "requirejs": "~2.1.8",
+    "jquery": "~1.8.3"
   },
   "private": "true"
 }

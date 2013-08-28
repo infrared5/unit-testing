@@ -11,6 +11,10 @@
     <script>
       (function(window, require) {
 
+        define('jquery', function() {
+          return $;
+        });
+
         require.config({
           baseUrl: '.',
           paths: {
