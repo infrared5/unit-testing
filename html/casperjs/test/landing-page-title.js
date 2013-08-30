@@ -1,6 +1,6 @@
 /*global casper*/
 
-casper.test.begin('Landing Page Title', function(test) {
+casper.test.begin('Landing Page Title', 1, function suite(test) {
 
   'use strict';
   
