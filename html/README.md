@@ -39,7 +39,7 @@ To download and install __CasperJS__:
     git clone git://github.com/n1k0/casperjs.git /User/ir5/software/casperjs
 * Create a symlink for casperjs to your _/usr/local/bin_ directory so that it is invokable from the command line:
   
-  sudo ln -s /User/ir5/software/casperjs/bin/casperjs /usr/local/bin/phantomjs
+  sudo ln -s /User/ir5/software/casperjs/bin/casperjs /usr/local/bin/casperjs
 
 Once the proper dependencies are installed:
 ---
