@@ -50,6 +50,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('casper', function() {
     var baseUrl = require('path').resolve(config.app);
+    grunt.log.write('Connect server started on ' + baseUrl + ':' + config.port);
     connect(connect.static(baseUrl)).listen(config.port);
     grunt.task.run(['casperjs']);
   });
