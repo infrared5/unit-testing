@@ -1,12 +1,12 @@
 /*global process:true requirejs:true*/
 var requirejs = require('requirejs'),
-    $ = require('jquery');
+    jq = require('jquery');
 
 requirejs.config({
   baseUrl: '.',
   paths: {
     'script': process.cwd() + '/common/script/amd',
-    'jquery': $
+    'jquery': jq
   },
   config: {
     'script/user-service': {
@@ -23,11 +23,11 @@ var World = function World(callback) {
   'use strict';
 
   this.session = session;
-  $.ajax = function() {
-    var def = $.Deferred();
+  jq.ajax = function() {
+    var def = jq.Deferred();
     def.resolveWith(null, [JSON.stringify([])]);
-    return $.Deferred();
-  }
+    return jq.Deferred();
+  };
   callback();
 
 };
