@@ -1,6 +1,9 @@
 /*global process:true requirejs:true*/
 var requirejs = require('requirejs'),
-    jq = require('jquery');
+    jq = require('jquery'),
+    session,
+    userFactory,
+    getUsersCommand;
 
 requirejs.config({
   baseUrl: '.',
@@ -15,21 +18,17 @@ requirejs.config({
   }
 });
 
-var session = requirejs(process.cwd() + '/common/script/amd/session.js'),
-    getUsersCommand = requirejs(process.cwd() + '/common/script/amd/get-users-command.js');
+session = requirejs('script/session'),
+userFactory = requirejs('script/user-factory'),
+getUsersCommand = requirejs('script/get-users-command');
 
 var World = function World(callback) {
 
   'use strict';
 
   this.session = session;
-  jq.ajax = function() {
-    var def = jq.Deferred();
-    def.resolveWith(null, [JSON.stringify([])]);
-    return jq.Deferred();
-  };
+  this.userFactory = userFactory;
   callback();
-
 };
 
 World.prototype.logInAsAdministrator = function(callback) {
