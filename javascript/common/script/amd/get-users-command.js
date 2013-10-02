@@ -4,6 +4,7 @@ define(['script/session', 'script/user-service'], function(session, userService)
   
   return {
     execute: function(success, fault) {
+      session.clearUsers();
       userService
         .getUsers()
         .done(function(usersJSON) {

@@ -12,7 +12,7 @@ define(function() {
           enumerable: true
         },
         'name': {
-          value: undefined,
+          value: '',
           writable: true,
           enumerable: true
         }

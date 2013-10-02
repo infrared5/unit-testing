@@ -24,6 +24,10 @@ define(function() {
     },
     getUsers: function() {
       return _users;
+    },
+    clearUsers: function() {
+      _users.length = 0;
+      return _users;
     }
 	};
 

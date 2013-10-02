@@ -26,8 +26,20 @@ var World = function World(callback) {
 
   'use strict';
 
+  this.userOneId = '1234';
+  this.userTwoId = '5678';
   this.session = session;
   this.userFactory = userFactory;
+  this.usersToAdd = [this.userFactory.create(this.userOneId), this.userFactory.create(this.userTwoId)];
+
+  (function(world) {
+    jq.ajax = function() {
+      var def = jq.Deferred();
+      def.resolveWith(null, [JSON.stringify(world.usersToAdd)]);
+      return def;
+    };
+  }(this));
+
   callback();
 };
 
