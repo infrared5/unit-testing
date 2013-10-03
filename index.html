@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Unit-testing by infrared5</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Unit-testing</h1>
+        <p>Examples of unit testing in different languages using various libraries</p>
+
+        <p class="view"><a href="https://github.com/infrared5/unit-testing">View the Project on GitHub <small>infrared5/unit-testing</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/infrared5/unit-testing/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/infrared5/unit-testing/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/infrared5/unit-testing">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="introduction" class="anchor" href="#introduction"><span class="octicon octicon-link"></span></a>Introduction</h1>
+
+<blockquote>
+<p>The purpose of this repository is to document examples of unit testing across multiple languages and libraries.</p>
+</blockquote>
+
+<h1>
+<a name="criteria" class="anchor" href="#criteria"><span class="octicon octicon-link"></span></a>Criteria</h1>
+
+<p>The examples - across different languages and libraries - will be structured similarly so as to be easily discernable by developer's who may not be familiar but are interested in common practice for testing within a particular programming language.</p>
+
+<p>As such, it is the intent of each example to demonstrate writing unit tests for the following Acceptance Criteria. The following provides User Stories, with defined criteria and scenarios to be addressed in each programming language (+library) example:</p>
+
+<h2>
+<a name="user-story-access" class="anchor" href="#user-story-access"><span class="octicon octicon-link"></span></a>User Story: Access</h2>
+
+<pre>
+<b>As an</b> administrator
+<b>I want to</b> access all user accounts
+<b>So that I</b> view each user information
+</pre>
+
+<h3>
+<a name="criteria-1" class="anchor" href="#criteria-1"><span class="octicon octicon-link"></span></a>Criteria</h3>
+
+<ul>
+<li>Can access all user accounts</li>
+<li>Can access properties of each user account</li>
+</ul><h3>
+<a name="scenario-user-accounts-are-accessible-to-admin" class="anchor" href="#scenario-user-accounts-are-accessible-to-admin"><span class="octicon octicon-link"></span></a>Scenario: User accounts are accessible to Admin</h3>
+
+<pre>
+<b>Given</b> I am an administrator
+<b>When</b> I request all user accounts
+<b>Then</b> The Session model is updated with receieved User models
+</pre>
+
+<h3>
+<a name="scenario-user-account-is-accessible-to-admin" class="anchor" href="#scenario-user-account-is-accessible-to-admin"><span class="octicon octicon-link"></span></a>Scenario: User account is accessible to Admin</h3>
+
+<pre>
+<b>Given</b> I am an administrator
+<b>And</b> User accounts are available on the Session model
+<b>When</b> I access a User from the list
+<b>Then</b> I can view that User's account details
+</pre>
+
+<h2>
+<a name="user-story-add-user" class="anchor" href="#user-story-add-user"><span class="octicon octicon-link"></span></a>User story: Add User</h2>
+
+<pre>
+<b>As an</b> administrator
+<b>I want to</b> add a new user
+<b>So that I</b> can manage the addition of accounts
+</pre>
+
+<h3>
+<a name="criteria-2" class="anchor" href="#criteria-2"><span class="octicon octicon-link"></span></a>Criteria</h3>
+
+<ul>
+<li>Can add a new user account if id is unique</li>
+<li>Cannot add a new user if id is already in system</li>
+</ul><h3>
+<a name="scenario-user-account-with-unique-id-added" class="anchor" href="#scenario-user-account-with-unique-id-added"><span class="octicon octicon-link"></span></a>Scenario: User account with unique id added</h3>
+
+<pre>
+<b>Given</b> I am an administrator
+<b>When</b> I request to add a user
+<b>And</b> The user id is not available in the system
+<b>Then</b> The Session model is updated with the User account added
+</pre>
+
+<h3>
+<a name="scenario-user-with-non-unique-id-not-added" class="anchor" href="#scenario-user-with-non-unique-id-not-added"><span class="octicon octicon-link"></span></a>Scenario: User with non-unique id not added</h3>
+
+<pre>
+<b>Given</b> I am an administrator
+<b>When</b> I request to add a user
+<b>And</b> The user id is already existant in the system
+<b>Then</b> The Session model is unaffected
+</pre>
+
+<h1>
+<a name="syntax--structure" class="anchor" href="#syntax--structure"><span class="octicon octicon-link"></span></a>Syntax &amp; Structure</h1>
+
+<p>It is preferrable to structure tests using a Behaviour-Driven-Development (BDD) methodology - at least syntax-wise. Though unit tests focused on particular output of a single method based on varying input may be required, it is recommended to setup a test to prove a scenario of a feature. Typically this means:</p>
+
+<ul>
+<li>
+<b>Given</b>s are defined at the top of a test case</li>
+<li>
+<b>When</b>s are descibed in set-up</li>
+<li>
+<b>Then</b>s are expectations within each test</li>
+</ul><p>That is a loose rule from which there may be variants based on the test, but generally how tests should be structured. Following such a format allows for developers to easily read and ascertain the feature and scenarios under the test.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/infrared5">infrared5</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
