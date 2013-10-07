@@ -71,7 +71,7 @@
 	-->
 	
 	<target name="compileTestRunner">
-		<mxmlc file="${src}/FlexUnitApplicationJenkins.as" output="${output.tests}/FlexUnitApplication.swf" static-link-runtime-shared-libraries="true">
+		<mxmlc file="${src}/FlexUnitApplication.as" output="${output.tests}/FlexUnitApplication.swf" static-link-runtime-shared-libraries="true">
 			<load-config filename="${Flex4.6}/frameworks/flex-config.xml"/>
 			<compiler.source-path path-element="${src}" />
 			<compiler.library-path dir="${flexunit.libs}" append="true">
