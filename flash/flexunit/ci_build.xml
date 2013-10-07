@@ -8,9 +8,9 @@
 		Folder locations
 	-->
 	
-	<property name="libs" location="libs"/>
-	<property name="src" location="src"/>
-	<property name="flexunit.libs" location="flexunit-libs"/>
+	<property name="libs" location="${basedir}/libs"/>
+	<property name="src" location="${basedir}/src"/>
+	<property name="flexunit.libs" location="${basedir}/flexunit-libs"/>
 	
 	<!--
 		SDKs
