@@ -3,6 +3,7 @@
 	
 	<!-- environmental properties define in CI client (ie, Jenkins) -->
 	<property environment="env"/>
+	<property name="root" location=".." />
 	
 	<!--
 		Folder locations
@@ -10,14 +11,14 @@
 	
 	<property name="libs" location="${basedir}/libs"/>
 	<property name="src" location="${basedir}/src"/>
+	<property name="common" location="${root}/common/src"/>
 	<property name="flexunit.libs" location="${basedir}/flexunit-libs"/>
 	
 	<!--
 		SDKs
 	-->
-
 	<property name="Flex4.6" location="${env.FLEX_HOME}" />
-	<property name="FLEX_HOME" location="${env.FLEX_HOME}"/>
+	<property name="FLEX_HOME" location="${Flex4.6}"/>
 	
 	<!--
 		Output
@@ -34,7 +35,7 @@
 		Task Definitions
 	-->
 	
-	<taskdef resource="flexTasks.tasks" classpath="${Flex4.6}/ant/lib/flexTasks.jar"/>
+	<taskdef resource="flexTasks.tasks" onerror="fail" classpath="${Flex4.6}/ant/lib/flexTasks.jar"/>
 	
 	<taskdef resource="flexUnitTasks.tasks">
 		<classpath>
@@ -71,19 +72,16 @@
 	-->
 	
 	<target name="compileTestRunner">
-	        <echo>${src}</echo>
-		<mxmlc file="${src}/FlexUnitApplication.as" output="${output.tests}/FlexUnitApplication.swf">
+		<mxmlc file="${src}/FlexUnitApplicationCI.mxml" output="${output.tests}/FlexUnitApplication.swf" static-link-runtime-shared-libraries="true">
 			<load-config filename="${Flex4.6}/frameworks/flex-config.xml"/>
 			<compiler.source-path path-element="${src}" />
-			<source-path path-element="${src}"/>
+			<compiler.source-path path-element="${common}" />
 			<compiler.library-path dir="${Flex4.6}/frameworks" append="true">
-                		<include name="libs" />
-            		</compiler.library-path>
-            		<source-path path-element="${Flex4.6}/frameworks"/>
-			<compiler.library-path dir="${flexunit.libs}" append="true">
+    		<include name="libs" />		
+  		</compiler.library-path>
+			<compiler.library-path dir="${basedir}/flexunit-libs" append="true">
 				<include name="*.swc"/>
 			</compiler.library-path>
-			<source-path path-element="${flexunit.libs}"/>
 			<compiler.library-path dir="${libs}" append="true">
 				<include name="*.swc"/>
 			</compiler.library-path>
